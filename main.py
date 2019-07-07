@@ -104,6 +104,11 @@ class Snake:
         # print(self.get_snake())
         for el in self.get_snake():
             print(el)
+    def is_alive(self):
+        if self.x_head + self.width == WIDTH or self.y_head + self.height == HEIGHT or self.x_head == -10 or self.y_head == -10:
+            return False
+        else:
+            return True
 WIDTH = 720
 HEIGHT = 460
 class Board:
@@ -125,7 +130,8 @@ class Board:
             self.draw_snake()
             self.pudge()
             # self.snake.next()
-            
+            if not self.snake.is_alive():
+                exit()
             # pygame.display.update()
             pygame.display.flip()
             self.fps_controller.tick(40)
@@ -144,9 +150,6 @@ class Board:
     
     def fill_brd(self):
         self.screen.fill((255,255,255))
-
-    def is_alive(self):
-        pass
 
     def draw_snake(self):
         arr = self.snake.get_snake()

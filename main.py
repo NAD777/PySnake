@@ -1,3 +1,4 @@
+#birth commit :)
 import pygame
 from random import randint
 class Part_tail:

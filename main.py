@@ -105,7 +105,7 @@ class Snake:
         for el in self.get_snake():
             print(el)
     def is_alive(self):
-        if self.x_head + self.width == WIDTH or self.y_head + self.height == HEIGHT or self.x_head == -10 or self.y_head == -10:
+        if self.x_head == WIDTH or self.y_head == HEIGHT or self.x_head == -10 or self.y_head == -10:
             return False
         else:
             return True
@@ -171,11 +171,14 @@ class Board:
                     print(self.snake.len)
                 if event.key == pygame.K_p:
                     self.snake.print_tail()
+                    
         keys = pygame.key.get_pressed()
         if keys[pygame.K_ESCAPE]:
             pygame.quit()
         if keys[pygame.K_f]:
             self.snake.add_piece()
+        if keys[pygame.K_v]:
+            self.snake.move()
         # if keys[pygame.K_f]:
         #     self.snake.add_piece()
         # if keys[pygame.K_m]:
